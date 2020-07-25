@@ -13,7 +13,7 @@ interface IDatabaseOptions {
 export class AppController {
   constructor(
     private readonly appService: AppService,
-    private configService: ConfigService,
+    private config: ConfigService,
   ) {}
 
   @Get()
@@ -24,9 +24,7 @@ export class AppController {
 
   @Get('db')
   getDbInfo(): IDatabaseOptions {
-    const dbConfigOptions = this.configService.get<IDatabaseOptions>(
-      'database',
-    );
+    const dbConfigOptions = this.config.get<IDatabaseOptions>('database');
     dbConfigOptions.password = '[removed]';
     return dbConfigOptions;
   }
