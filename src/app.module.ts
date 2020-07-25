@@ -4,7 +4,6 @@ import { AppService } from './app.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
 import configuration from '@src/config/config';
-import { RoomsController } from '@rooms/rooms.controller';
 import { RoomsModule } from '@rooms/rooms.module';
 import { Room } from './rooms/room.entity';
 

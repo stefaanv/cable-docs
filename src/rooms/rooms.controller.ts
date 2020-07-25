@@ -1,18 +1,18 @@
 import { Controller, Get, Param } from '@nestjs/common';
 import { RoomsService } from '@rooms/rooms.service';
-import { Room } from '@rooms/room.entity';
+import { RoomDto } from '@rooms/room.dto';
 
 @Controller('room')
 export class RoomsController {
   constructor(private readonly roomsService: RoomsService) {}
 
-  @Get()
-  async getAll(): Promise<Array<Room>> {
+  @Get('all')
+  async getAll(): Promise<Array<RoomDto>> {
     return this.roomsService.findAll();
   }
 
   @Get(':roomId')
-  async getBook(@Param('roomId') roomId: string): Promise<Room> {
+  async getBook(@Param('roomId') roomId: string): Promise<RoomDto> {
     return this.roomsService.findOne(roomId);
   }
 }

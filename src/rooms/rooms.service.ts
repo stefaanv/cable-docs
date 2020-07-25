@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Room } from './room.entity';
+import { RoomDto } from './room.dto';
 
 @Injectable()
 export class RoomsService {
@@ -10,12 +11,14 @@ export class RoomsService {
     private RoomsRepository: Repository<Room>,
   ) {}
 
-  findAll(): Promise<Room[]> {
-    return this.RoomsRepository.find();
+  async findAll(): Promise<Array<RoomDto>> {
+    const roomEntities = await this.RoomsRepository.find();
+    return roomEntities.map(room => RoomDto.fromEntity(room));
   }
 
-  findOne(id: string): Promise<Room> {
-    return this.RoomsRepository.findOne(id);
+  async findOne(id: string): Promise<RoomDto> {
+    const roomEntity = await this.RoomsRepository.findOne(id);
+    return RoomDto.fromEntity(roomEntity);
   }
 
   async remove(id: string): Promise<void> {
