@@ -8,4 +8,11 @@ export default (): any => ({
     password: process.env.DATABASE_PASSWORD,
     database: 'cabling',
   },
+  docs: {
+    title: 'Cabling Documentation',
+    description: 'API for the cabling application',
+    version: '1.0',
+    tag: 'cabling',
+    apiUrl: 'api',
+  },
 });
