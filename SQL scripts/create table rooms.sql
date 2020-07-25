@@ -1,0 +1,10 @@
+CREATE TABLE cabling.rooms (
+	id INT auto_increment NOT NULL,
+	name varchar(100) NOT NULL,
+	createdat TIMESTAMP DEFAULT CURRENT_TIMESTAMP  NOT NULL,
+	updatedat TIMESTAMP DEFAULT CURRENT_TIMESTAMP  NOT NULL,
+	CONSTRAINT rooms_pk PRIMARY KEY (id)
+)
+ENGINE=InnoDB
+DEFAULT CHARSET=latin1
+COLLATE=latin1_general_ci;
