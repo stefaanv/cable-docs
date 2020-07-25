@@ -13,8 +13,13 @@ $ npm install
 ## Running the app
 
 ```bash
-# development
-$ npm run start
+# development watch + debug
+$ npm run start:debug
++ select `Attach to start:debug` in the debugger
+
+OR 
+
+Press 'F5' in vscode (no watch mode in this case)
 
 # watch mode
 $ npm run start:dev

@@ -11,24 +11,29 @@
       "runtimeArgs": [
         "--nolazy",
         "-r",
-        "ts-node/register"
+        "ts-node/register",
+        "-r",
+        "./tsconfig-paths-bootstrap.js"
       ],
       "sourceMaps": true,
       "cwd": "${workspaceRoot}",
       "protocol": "inspector",
-      "outputCapture": "std", //om Winston logs op in het debug venster te kunne zien
+      "outputCapture": "std",
       "internalConsoleOptions": "openOnSessionStart",
     },
     {
-      "name": "Attach to Process",
       "type": "node",
       "request": "attach",
+      "name": "Attach to start:debug",
+      "port": 9229,
       "restart": true,
-      "port": 5858,
+      "stopOnEntry": false,
+      "protocol": "inspector",
       "outFiles": [
         "${workspaceFolder}/dist/**/*.js"
       ],
-      "sourceMaps": true
-    },
+      "sourceMaps": true,
+      "internalConsoleOptions": "openOnSessionStart",
+    }
   ]
 }

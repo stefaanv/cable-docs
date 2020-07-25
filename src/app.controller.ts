@@ -1,5 +1,5 @@
 import { Controller, Get } from '@nestjs/common';
-import { AppService } from './app.service';
+import { AppService } from '@src/app.service';
 
 @Controller()
 export class AppController {
@@ -7,6 +7,7 @@ export class AppController {
 
   @Get()
   getHello(): string {
+    console.log('serving helloworld');
     return this.appService.getHello();
   }
 }
