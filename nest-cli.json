@@ -1,4 +1,6 @@
 {
   "collection": "@nestjs/schematics",
-  "sourceRoot": "src"
+  "sourceRoot": "src",
+  "inspect": true,
+  "port": 9229
 }
