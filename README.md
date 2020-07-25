@@ -31,9 +31,14 @@ This project uses the below libraries and tools
 - npm (v6.14.6)
 - nodejs (v12.18.3)
 - nestjs/cli (v7.4.1)
+- typescript (v3.9.6) - upgrade with `npm -g upgrade typescript`
 
 ## Typescript configuration
 - javascript target es2019 (ref [node.green](https://node.green/#ES2018))
+
+## vscode support
+If you're anything like me you'll want good support for vscode.  Unfortunately, the Nestjs documentation doesn't provice much guidance on this topic.  The project includes a `.vscode` folder with associated files
+- `/node_modules` and `dist` folder are excluded from the file explorer
 
 ## Getting Started
 - install nestejs by typing `npm i -g @nestjs/cli` in the command line
