@@ -1,7 +1,11 @@
 import { Room } from './room.entity';
+import { ApiProperty } from '@nestjs/swagger';
 
 export class RoomDto {
+  @ApiProperty({ type: Number })
   id: number;
+
+  @ApiProperty({ type: String })
   name: string;
 
   public static fromEntity(roomEntity: Room): RoomDto {
