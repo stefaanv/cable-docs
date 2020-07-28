@@ -5,7 +5,8 @@ Network cabling documentation
 ## Introduction
 
 This project is intended as a exploration/tutorial of Nestjs.
-The Nestjs documentation can be one-dimensional : the features are explained in isolation. However real-life applications need to combine features which can be challenging in Nestjs. You'll typically want all of your application to use one configuration data, even **typeorm**, but with standard Nestjs the typeorm configuration will be in a seperate config file. You may even want the port number to be defined in the config file ! That's a challenge because the configuration service needs dependency injection which isn't active yet at the time you have to specify the port number.
+The Nestjs documentation explains the features in isolation however real-life applications combine features. Combining Nestjs is not always trivial and well documented.
+This project aims to provide an example of a real-life combination to features.
 
 ## Installation
 
@@ -44,6 +45,9 @@ This project uses the below libraries and tools
 - nodejs (v12.18.3)
 - nestjs/cli (v7.4.1)
 - typescript (v3.9.6) - upgrade with `npm -g upgrade typescript`
+- winston (v3.3.3)
+- winston daily-file-rotate ()
+- nest-winston (v1.3.6)
 
 ## Typescript configuration
 

@@ -1,11 +1,12 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { AppController } from './app/app.controller';
+import { AppService } from './app/app.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
 import configuration from '@src/config/config';
 import { RoomsModule } from '@rooms/rooms.module';
-import { Room } from './rooms/room.entity';
+import { Room } from '@rooms/room.entity';
+import { LoggerModule } from '@src/logger/logger.module';
 
 ConfigModule.forRoot({
   isGlobal: true,
@@ -33,6 +34,7 @@ const factory = (config: ConfigService) =>
       inject: [ConfigService],
     }),
     RoomsModule,
+    LoggerModule,
   ],
   controllers: [AppController],
   providers: [AppService],

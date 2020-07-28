@@ -15,4 +15,18 @@ export default (): any => ({
     tag: 'cabling',
     apiUrl: 'api',
   },
+  logging: {
+    appName: 'rsa-usr-mgnt',
+    fileLevel: 'info',
+    consoleLogLevel: 'debug',
+    fileRotateFrequency: '24h',
+    dirname: '/usr/bruyland/logs',
+    filenamePattern: 'log-%DATE%.log',
+    filenameDatePattern: 'YYYY-MM-DD',
+    consoleLogDatetimePattern: 'D/M HH:mm:ss',
+    fileLogDatetimePattern: 'YYYY/MM/DD HH:mm:ss',
+    maxFiles: 20,
+    handleExceptions: false,
+    auditFile: 'logs',
+  },
 });
