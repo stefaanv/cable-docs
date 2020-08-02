@@ -2,35 +2,22 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app/app.controller';
 import { AppService } from './app/app.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
+import { SequelizeModule } from '@nestjs/sequelize';
 import configuration from '@src/config/config';
 import { RoomsModule } from '@rooms/rooms.module';
-import { Room } from '@rooms/room.entity';
 import { LoggerModule } from '@src/logger/logger.module';
+import { sequelizeConfig } from '@src/sequelize-config';
 
 ConfigModule.forRoot({
   isGlobal: true,
 });
 
-const factory = (config: ConfigService) =>
-  ({
-    type: 'mysql',
-    host: config.get<string>('database.host'),
-    port: 3306,
-    username: config.get<string>('database.user'),
-    password: config.get<string>('database.password'),
-    database: config.get<string>('database.database'),
-    entities: [Room],
-    synchronize: false,
-    autoLoadEntities: true,
-  } as TypeOrmModuleOptions);
-
 @Module({
   imports: [
     ConfigModule.forRoot({ load: [configuration] }),
-    TypeOrmModule.forRootAsync({
+    SequelizeModule.forRootAsync({
       imports: [ConfigModule],
-      useFactory: factory,
+      useFactory: sequelizeConfig,
       inject: [ConfigService],
     }),
     RoomsModule,
